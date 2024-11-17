@@ -1,0 +1,71 @@
+
+CREATE DATABASE FazendaUrbanaDB;
+GO
+
+USE FazendaUrbanaDB;
+GO
+
+CREATE TABLE Produtos (
+    ProdutoID INT PRIMARY KEY IDENTITY(1,1),
+    Nome VARCHAR(100) NOT NULL,
+    Categoria VARCHAR(100) NOT NULL,
+    Preco DECIMAL(10,2) NOT NULL,
+    Quantidade INT NOT NULL
+);
+GO
+
+CREATE TABLE Funcionarios (
+    FuncionarioID INT PRIMARY KEY IDENTITY(1,1),
+    Nome VARCHAR(100) NOT NULL,
+    Cargo VARCHAR(100) NOT NULL,
+    Salario DECIMAL(10,2) NOT NULL -- Adicionado salário
+);
+GO
+
+
+CREATE TABLE Vendas (
+    ProdutoId INT PRIMARY KEY IDENTITY(1,1),
+    Data DATETIME NOT NULL,
+    Produto VARCHAR(100) NOT NULL, 
+    Quantidade INT NOT NULL,
+    Preco DECIMAL(10,2) NOT NULL
+);
+GO
+
+
+INSERT INTO Produtos (Nome, Categoria, Preco, Quantidade)
+VALUES
+('Alface', 'Verdura', 5.20, 150),       
+('Cenoura', 'Legume', 3.80, 200),        
+('Sementes', 'Grãos', 15.00, 30),     
+('Arroz', 'Grãos', 12.50, 120),        
+('Maçã', 'Fruta', 8.00, 80),         
+('Laranja', 'Fruta', 6.50, 90);          
+
+
+INSERT INTO Funcionarios (Nome, Cargo, Salario)
+VALUES
+('João Silva', 'Vendedor', 3000),
+('Brenno Oliveira', 'Dev Fullstack Pleno', 5000), 
+('Ewerton Souza', 'Dev Frontend', 5000),      
+('Fernando Costa', 'Dev Backend', 6000);       
+
+
+INSERT INTO Vendas (Data, ProdutoID, ProdutoNome, Quantidade, Preco)
+VALUES
+('2024-11-16 20:26', 1, 'Tomate', 10, 2.50),   
+('2024-11-15 20:26', 5, 'Cenoura', 15, 1.20),  
+('2024-11-14 20:26', 4, 'Alface', 8, 1.00),    
+('2024-11-13 20:26', 2, 'Batata', 20, 3.00),  
+('2024-11-12 20:26', 6, 'Pepino', 12, 1.50),  
+('2024-11-11 20:26', 7, 'Couve', 5, 2.00),    
+('2024-11-10 20:26', 8, 'Cebola', 18, 2.30),  
+('2024-11-09 20:26', 9, 'Alho', 30, 3.50),    
+('2024-11-08 20:26', 10, 'Brócolis', 7, 2.20),  
+('2024-11-07 20:26', 4, 'Beterraba', 10, 1.80), 
+('2024-11-06 20:26', 11, 'Abobrinha', 6, 2.10), 
+('2024-11-05 20:26', 12, 'Pimentão', 14, 2.80), 
+('2024-11-04 20:26', 13, 'Espinafre', 9, 1.70), 
+('2024-11-03 20:26', 14, 'Rúcula', 10, 1.90),   
+('2024-11-02 20:26', 15, 'Repolho', 13, 2.50);   
+GO
